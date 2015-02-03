@@ -11,4 +11,9 @@ class Customer extends Model {
         return $this->hasMany('App\Models\Slot');
     }
 
+    public function addresses()
+    {
+        return $this->hasMany('App\Models\Æddresses');
+    }
+
 }

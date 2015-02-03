@@ -13,6 +13,13 @@ class CreateAddressTypesTable extends Migration {
 	public function up()
 	{
 		//
+
+		Schema::create('addressestype', function(Blueprint $table){
+
+			$table->increments('id');
+			$table->string('name');
+		});
+
 	}
 
 	/**
@@ -23,6 +30,8 @@ class CreateAddressTypesTable extends Migration {
 	public function down()
 	{
 		//
+
+		Schema::drop('addressestype');
 	}
 
 }

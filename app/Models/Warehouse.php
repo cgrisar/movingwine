@@ -6,4 +6,9 @@ class Warehouse extends Model {
 
 	//
 
+    public function slots()
+    {
+        return $this->hasMany('App\Models\Slot');
+    }
+
 }

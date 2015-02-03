@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Warehouse extends Model {
+class Customer extends Model {
 
 	//
 
@@ -11,8 +11,4 @@ class Warehouse extends Model {
         return $this->hasMany('App\Models\Slot');
     }
 
-    public function currentCustomer()
-    {
-        return $this->belongsTo('App\Models\Customer');
-    }
 }

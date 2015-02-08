@@ -6,9 +6,16 @@ class Address extends Model {
 
 	//
 
+    protected $fillable = ['address'];
+
     public function customer()
     {
         return $this->belongsTo('App\Models\Customer');
+    }
+
+    public function warehouse()
+    {
+        return $this->belongsTo('App\Models\Warehouse');
     }
 
     public function addressType()

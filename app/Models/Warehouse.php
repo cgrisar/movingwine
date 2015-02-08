@@ -6,6 +6,8 @@ class Warehouse extends Model {
 
 	//
 
+    protected $fillable = ['name'];
+
     public function slots()
     {
         return $this->hasMany('App\Models\Slot');
@@ -14,5 +16,10 @@ class Warehouse extends Model {
     public function currentCustomer()
     {
         return $this->belongsTo('App\Models\Customer');
+    }
+
+    public function address()
+    {
+        return $this->hasOne('App\Models\Address');
     }
 }

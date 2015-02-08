@@ -13,6 +13,12 @@ class CreateWarehousesTable extends Migration {
 	public function up()
 	{
 		//
+
+		Schema::create('warehouses', function(Blueprint $table){
+			$table->increments('id');
+			$table->string('name');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -23,6 +29,7 @@ class CreateWarehousesTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('warehouses');
 	}
 
 }

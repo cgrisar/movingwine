@@ -8,7 +8,9 @@
 
     <div class="eight wide column">
 
-        {!! Form::open(['class' => 'ui small form', 'route' => 'warehousecreate_path']) !!}
+        @include('partials.errors')
+
+        {!! Form::open(['class' => 'ui small form', 'url' => 'warehouses']) !!}
 
             <div class="required field">
                 <label for="name">Name</label>

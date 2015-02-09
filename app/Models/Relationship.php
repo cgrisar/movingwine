@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model {
+class Relationship extends Model {
 
 	//
 
@@ -13,7 +13,12 @@ class Customer extends Model {
 
     public function addresses()
     {
-        return $this->hasMany('App\Models\Æddresses');
+        return $this->hasMany('App\Models\Addresses');
+    }
+
+    public function relationshipType()
+    {
+        return $this->belongsTo('App\Models\RelationshipType');
     }
 
 }

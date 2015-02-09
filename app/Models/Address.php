@@ -6,20 +6,19 @@ class Address extends Model {
 
 	//
 
-    protected $fillable = ['address'];
+    protected $fillable = ['address', 'zip', 'county', 'country', 'phone', 'email', 'contact'];
 
-    public function customer()
+    public function relationship()
     {
-        return $this->belongsTo('App\Models\Customer');
+        return $this->belongsTo('App\Models\Relationship');
     }
 
-    public function warehouse()
-    {
-        return $this->belongsTo('App\Models\Warehouse');
-    }
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function addressType()
     {
         return $this->belongsTo('App\Models\AddressType');
     }
+
 }

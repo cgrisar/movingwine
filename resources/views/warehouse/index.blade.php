@@ -4,16 +4,48 @@
 
     <div class="sixteen wide column">
 
-    <h2 class="ui header">Warehouses</h2>
+        <h2 class="ui header">Warehouses</h2>
 
-    <h4 class="ui dividing icon header">
-        <div class="content">List of warehouses</div>
-        <i class="add circle icon"></i>
-    </h4>
+        <h4 class="ui dividing header">List of warehouses</h4>
+
+        @if($warehouses->isEmpty())
+            <div class="ui primary inverted red segment">
+                <p>No warehouse has been defined.</p>
+            </div>
+        @else
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Contact</td>
+                        <td>Address</td>
+                        <td>County</td>
+                        <td>Country</td>
+                        <td>Email</td>
+                        <td>Telephone</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($warehouses as $warehouse)
+                        <tr>
+                            <td>{{ $warehouse->name }}</td>
+                            <td>{{ $warehouse->contact }}</td>
+                            <td>{{ $warehouse->address }}</td>
+                            <td>{{ $warehouse->zip . " " . $warehouse->county }}</td>
+                            <td>{{ $warehouse->country }}</td>
+                            <td>{{ $warehouse->email }}</td>
+                            <td>{{ $warehouse->tel }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
 
     </br>
     </br>
-    {!! link_to_route('warehousecreate_path', 'Create a Warehouse', null, ['class' => 'ui blue button']) !!}
-    </div>
+
+    {!! link_to('warehouses/create', 'Create a Warehouse', ['class' => 'ui blue right button']) !!}
+
+</div>
 
 @stop

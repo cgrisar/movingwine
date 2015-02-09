@@ -5,6 +5,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder {
 
+	protected $tables = [
+		'addresstype',
+	];
+
 	/**
 	 * Run the database seeds.
 	 *
@@ -12,9 +16,29 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
+		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$this->CleanDatabase();
+
+		foreach($this->tables as $table)
+		{
+			$seed = $table . 'Seeder';
+			$this->call($seed);
+		}
+
+
+	}
+
+	private function CleanDatabase()
+	{
+		DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
+		foreach($this->tables as $table)
+		{
+			DB::table($table)->truncate();
+		}
+
+		DB::statement('SET FOREIGN_KEY_CHECKS=1');
 	}
 
 }

@@ -11,4 +11,9 @@ class Slot extends Model {
         return $this->belongsTo('App\Models\Warehouse');
     }
 
+    public function relationship()
+    {
+        return $this->belongsTo('App\Models\Relationship');
+    }
+
 }

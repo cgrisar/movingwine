@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAddressTypesTable extends Migration {
+class CreateRelationshiptypeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAddressTypesTable extends Migration {
 	public function up()
 	{
 		//
-
-		Schema::create('addresstypes', function(Blueprint $table){
+		Schema::create('relationshiptypes', function(Blueprint $table){
 
 			$table->increments('id');
 			$table->string('name');
+			$table->timestamps();
 		});
-
 	}
 
 	/**
@@ -30,8 +29,7 @@ class CreateAddressTypesTable extends Migration {
 	public function down()
 	{
 		//
-
-		Schema::drop('addresstypes');
+		Schema::drop('relationshiptypes');
 	}
 
 }

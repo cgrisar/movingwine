@@ -6,20 +6,11 @@ class Warehouse extends Model {
 
 	//
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'address', 'zip', 'county', 'country', 'tel', 'email', 'contact'];
 
     public function slots()
     {
         return $this->hasMany('App\Models\Slot');
     }
 
-    public function currentCustomer()
-    {
-        return $this->belongsTo('App\Models\Customer');
-    }
-
-    public function address()
-    {
-        return $this->hasOne('App\Models\Address');
-    }
 }

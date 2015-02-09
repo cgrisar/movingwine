@@ -13,7 +13,7 @@ class CreateCustomersTable extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('customers', function(Blueprint $table)
+		Schema::create('relationships', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('name');
@@ -29,7 +29,7 @@ class CreateCustomersTable extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('customers');
+		Schema::drop('relationships');
 	}
 
 }

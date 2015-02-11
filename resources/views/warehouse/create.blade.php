@@ -17,6 +17,13 @@
                 <input type="text" placeholder="Name" name="name">
             </div>
 
+            <div class="required field">
+                <label for="excise">Excise Number</label>
+                <input type="text" placeholder="Warehouse Excise Number" name="excise">
+            </div>
+
+            <div class="ui divider"></div>
+
             <div class="field">
                 <label for="contact">Contact</label>
                 <input type="text" placeholder="Contact Person" name="contact">
@@ -38,20 +45,21 @@
                 </div>
             </div>
 
-        <div class="required field">
-            <label for="country">Country</label>
-            <input type="text" placeholder="Country" name="country">
-        </div>
+            <div class="required field">
+                <label for="country">Country</label>
+                <input type="text" placeholder="Country" name="country">
+            </div>
 
-        <div class="required field">
-            <label for="email">E-mail</label>
-            <input type="text" placeholder="E-mail address" name="email">
-        </div>
+            <div class="required field">
+                <label for="email">E-mail</label>
+                <input type="text" placeholder="E-mail address" name="email">
+            </div>
 
-        <div class="required field">
-            <label for="tel">Telephone</label>
-            <input type="text" placeholder="Phone number" name="tel">
-        </div>
+            <div class="required field">
+                <label for="tel">Telephone</label>
+                <input type="text" placeholder="Phone number" name="tel">
+            </div>
+
 
         {!! Form::submit('Save', ['class' => 'ui blue right floated button']) !!}
 

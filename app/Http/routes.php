@@ -21,8 +21,12 @@ Route::get('home', 'HomeController@index');
 
 Route::get('warehouses', 'WarehouseController@index');
 Route::get('warehouses/create', 'WarehouseController@create');
-Route::get('warehouses/{id}', 'WarehouseController@show');
+Route::get('warehouses/edit/{id}', 'WarehouseController@show');
+Route::get('warehouses/delete/{id}', 'WarehouseController@destroy');
+
 Route::post('warehouses', 'WarehouseController@store');
+Route::post('warehouses/edit/{id}', 'WarehouseController@update');
+Route::delete('warehouses/delete/{id}', 'WarehouseController@destroy');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

@@ -36,8 +36,8 @@
                             <td>{{ $warehouse->country }}</td>
                             <td>{{ $warehouse->email }}</td>
                             <td>{{ $warehouse->tel }}</td>
-                            <td class="center aligned"><a href="warehouses/{{ $warehouse->id }}" title="Edit"><i class="black edit icon"></i></a></td>
-                            <td class="center aligned"><a href="{{ $warehouse->id }}" title="Delete"><i class="black delete icon"></i></td>
+                            <td class="center aligned"><a href="{{ url('warehouses/edit', $warehouse->id) }}" title="Edit"><i class="black edit icon"></i></a></td>
+                            <td class="center aligned"><a href="{{ url('warehouses/delete', $warehouse->id) }}" title="Delete"><i class="black delete icon"></i></td>
                         </tr>
                     @endforeach
                 </tbody>

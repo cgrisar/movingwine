@@ -24,6 +24,7 @@ class CreateWarehousesTable extends Migration {
 			$table->string('country');
 			$table->string('email');
 			$table->string('tel');
+			$table->string('excise');
 			$table->timestamps();
 		});
 	}

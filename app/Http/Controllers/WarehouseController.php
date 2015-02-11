@@ -36,7 +36,6 @@ class WarehouseController extends Controller {
 	public function create()
 	{
 		//
-		$warehouse = [];
 		return view('warehouse.create', compact('warehouse'));
 	}
 
@@ -49,6 +48,7 @@ class WarehouseController extends Controller {
 	public function store(Requests\WarehouseRequest $request)
 	{
 		//
+		dd($request->all());
 		$warehouse = Warehouse::create($request->all());
 
 		return redirect('warehouses');
@@ -63,9 +63,9 @@ class WarehouseController extends Controller {
 	public function show($id)
 	{
 		//
-		$warehouse = Warehouse::find($id);
+		$warehouse = Warehouse::findOrFail($id);
 
-		return view('warehouse.edit', compact('warehouse'));
+		return view('warehouse.edit', compact('warehouse', 'id'));
 	}
 
 	/**
@@ -78,18 +78,24 @@ class WarehouseController extends Controller {
 	{
 		//
 
-		return redirect('warehouses');
+
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 * @param Requests\WarehouseRequest $request
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($id, Requests\WarehouseRequest $request)
 	{
 		//
+		$warehouse = Warehouse::findOrFail($id);
+
+		$warehouse->update($request->except(['_token']));
+
+		return redirect('warehouses');
 	}
 
 	/**
@@ -101,6 +107,15 @@ class WarehouseController extends Controller {
 	public function destroy($id)
 	{
 		//
+		$warehouse = Warehouse::findOrFail($id);
+
+		$warehouse->delete();
+
+		return redirect('warehouses');
 	}
 
+	public function delete($id)
+	{
+		// empty
+	}
 }

@@ -1,29 +1,26 @@
 <html>
-<head>
-    <!-- references to css -->
-    <link href="/css/semantic/semantic.css" rel="stylesheet">
+    <head>
+        <!-- references to css -->
+        @include('partials.css')
 
-    <!-- references to scripts -->
-    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="/js/semantic.js" type="text/javascript"></script>
-</head>
+    </head>
 
-<body>
+    <body>
 
-    </br>
+        </br>
 
-    <div class="ui page grid">
+        <div class="ui page grid">
 
-            @include('partials.menu')
+                @include('partials.menu')
 
-            @yield('content')
+                @yield('content')
 
-        </div>
+            </div>
 
-    <!-- activate the semantic elements -->
-    <script>
-        $('.ui.dropdown')
-                .dropdown();
-    </script>
-</body>
+        <!-- activate the semantic elements -->
+
+        @include('partials.js')
+
+        @yield('dTScript')
+    </body>
 </html>

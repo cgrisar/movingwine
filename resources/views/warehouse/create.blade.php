@@ -38,21 +38,22 @@
                 </div>
             </div>
 
-            <div class="required field">
-                <label for="email">E-mail</label>
-                <input type="text" placeholder="E-mail address" name="email">
-            </div>
+        <div class="required field">
+            <label for="country">Country</label>
+            <input type="text" placeholder="Country" name="country">
+        </div>
 
-            <div class="required field">
-                <label for="tel">Telephone</label>
-                <input type="text" placeholder="Phone number" name="tel">
-            </div>
+        <div class="required field">
+            <label for="email">E-mail</label>
+            <input type="text" placeholder="E-mail address" name="email">
+        </div>
 
-            <div class="required field">
-                <label for="country">Country</label>
-                <input type="text" placeholder="Country" name="country">
-            </div>
-            {!! Form::submit('Save', ['class' => 'ui blue right floated button']) !!}
+        <div class="required field">
+            <label for="tel">Telephone</label>
+            <input type="text" placeholder="Phone number" name="tel">
+        </div>
+
+        {!! Form::submit('Save', ['class' => 'ui blue right floated button']) !!}
 
         {!! Form::close() !!}
 

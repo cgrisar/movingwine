@@ -8,7 +8,7 @@ class AddressType extends Model {
 
     public function addresses()
     {
-        return $this->hasMany('App\Models\Address');
+        return $this->hasMany('App\Movingwine\Address');
     }
 
 }

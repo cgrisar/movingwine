@@ -8,12 +8,12 @@ class Slot extends Model {
 
     public function warehouse()
     {
-        return $this->belongsTo('App\Models\Warehouse');
+        return $this->belongsTo('App\Movingwine\Warehouse');
     }
 
     public function relationship()
     {
-        return $this->belongsTo('App\Models\Relationship');
+        return $this->belongsTo('App\Movingwine\Relationship');
     }
 
 }

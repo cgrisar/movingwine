@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace App\Movingwine;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,15 +10,12 @@ class Address extends Model {
 
     public function relationship()
     {
-        return $this->belongsTo('App\Models\Relationship');
+        return $this->belongsTo('App\Movingwine\Relationship');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
     public function addressType()
     {
-        return $this->belongsTo('App\Models\AddressType');
+        return $this->belongsTo('App\Movingwine\AddressType');
     }
 
 }

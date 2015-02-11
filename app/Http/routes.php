@@ -21,6 +21,7 @@ Route::get('home', 'HomeController@index');
 
 Route::get('warehouses', 'WarehouseController@index');
 Route::get('warehouses/create', 'WarehouseController@create');
+Route::get('warehouses/{id}', 'WarehouseController@show');
 Route::post('warehouses', 'WarehouseController@store');
 
 Route::controllers([

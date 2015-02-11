@@ -8,17 +8,17 @@ class Relationship extends Model {
 
     public function slots()
     {
-        return $this->hasMany('App\Models\Slot');
+        return $this->hasMany('App\Movingwine\Slot');
     }
 
     public function addresses()
     {
-        return $this->hasMany('App\Models\Addresses');
+        return $this->hasMany('App\Movingwine\Addresses');
     }
 
     public function relationshipType()
     {
-        return $this->belongsTo('App\Models\RelationshipType');
+        return $this->belongsTo('App\Movingwine\RelationshipType');
     }
 
 }

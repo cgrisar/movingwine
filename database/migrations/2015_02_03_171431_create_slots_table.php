@@ -13,6 +13,17 @@ class CreateSlotsTable extends Migration {
 	public function up()
 	{
 		//
+		Schema::create('slots', function(Blueprint $table){
+			$table->increments('id');
+			$table->string('address')->unique();
+			$table->boolean('excise');
+			$table->integer('capacity');
+			$table->integer('warehouse_id')->unsigned();
+			$table->foreign('warehouse_id')->references('id')->on('warehouses');
+			$table->integer('relationship_id')->unsigned();
+			$table->foreign('relationship_id')->references('id')->on('relationships');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -23,6 +34,7 @@ class CreateSlotsTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('slots');
 	}
 
 }

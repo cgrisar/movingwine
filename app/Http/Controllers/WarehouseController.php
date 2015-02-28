@@ -48,7 +48,6 @@ class WarehouseController extends Controller {
 	public function store(Requests\WarehouseRequest $request)
 	{
 		//
-
 		$warehouse = Warehouse::create($request->all());
 
 		return redirect('warehouses');
@@ -60,7 +59,7 @@ class WarehouseController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function edit($id)
 	{
 		//
 		$warehouse = Warehouse::findOrFail($id);
@@ -68,18 +67,6 @@ class WarehouseController extends Controller {
 		return view('warehouse.edit', compact('warehouse', 'id'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-
-
-	}
 
 	/**
 	 * Update the specified resource in storage.
@@ -114,8 +101,4 @@ class WarehouseController extends Controller {
 		return redirect('warehouses');
 	}
 
-	public function delete($id)
-	{
-		// empty
-	}
 }

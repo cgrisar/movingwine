@@ -1,1 +1,20 @@
-thead { background-color: lightgrey}
+thead
+    {
+        background-color: lightgrey;
+    }
+
+.floatrighticon
+    {
+        float:right;
+    }
+
+#rightcolumntable
+    {
+        margin-top: 32px;
+    }
+
+#slotsmessage
+    {
+        margin:2.39rem 0em;
+        padding:0.55em 1em;
+    }

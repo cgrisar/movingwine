@@ -23,7 +23,7 @@
         @yield('right-content')
     </div>
 
-
+    @yield('modals')
 
 </div>
 

@@ -28,13 +28,25 @@ Route::post('warehouses', 'WarehouseController@store');
 Route::post('warehouses/edit/{id}', 'WarehouseController@update');
 Route::delete('warehouses/delete/{id}', 'WarehouseController@destroy');
 
+
 /*
  * Routes for slots
  */
-Route::get('warehouses/{id}/slots/create', 'SlotController@create');
+Route::post('warehouses/{id}/slots/create', 'SlotController@create');
 Route::post('warehouses/{id}/slots', 'SlotController@store');
 Route::get('warehouses/{id}/slots/{slot}/delete', 'SlotController@destroy');
 
+
+/*
+ *  Routes for relationships
+ */
+Route::get('admin/relationshipsajax', 'RelationshipController@indexajax');
+Route::get('relationships', 'RelationshipController@index');
+
+
+/*
+ * Routes for auth
+ */
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',

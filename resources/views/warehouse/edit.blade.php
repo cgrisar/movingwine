@@ -81,12 +81,14 @@
 
     <h4 class="ui dividing header">Slots
         <div class="floatrighticon">
-            <i class="file outline icon"></i>
+            <a class="item" id="Create">
+                <i class="file outline icon"></i>
+            </a>
         </div>
     </h4>
 
     @if($slots = $warehouse->slots->all())
-        <table class="ui small basic table" id="rightcolumntable">
+        <table class="ui small basic table" id="slotsTable">
             <thead>
                 <tr>
                     <td>Address</td>
@@ -98,81 +100,42 @@
             </thead>
             <tbody>
                 @foreach($slots as $slot)
-                <tr>
-                    <td>{{ $slot->address }}</td>
-                    <td class="center aligned">
-                        @if((boolean)$slot->excise)
-                            <i class="checkmark icon"></i>
-                        @else
-                            <i class="minus icon"></i>
-                        @endif
-                    </td>
-                    <td>{{ $slot->capacity }}</td>
-                    <td></td>
-                    <td class="center aligned"><i class="edit icon"</td>
-                    <td class="center aligned">
-                        <?php $str1 = "javascript:OpenModalDelete('";
-                        $str1 .= $slot->address;
-                        $str1 .= "',";
-                        $str1 .= "'";
-                        $str1 .= action('SlotController@destroy', [$warehouse->id, $slot->id]);
-                        $str1 .= "');"; ?>
-                        <a href="{{ $str1 }}"> <i class="delete icon"</a></td>
-                </tr>
+                    <tr>
+                        <td>{{ $slot->address }}</td>
+                        <td>
+                            @if((boolean)$slot->excise)
+                                <i class="checkmark icon"></i>
+                            @else
+                                <i class="minus icon"></i>
+                            @endif
+                        </td>
+                        <td>{{ $slot->capacity }}</td>
+                        <td></td>
+                        <td class="center aligned"><i class="edit icon"</td>
+                        <td class="center aligned" data-value="{{ $slot->id }}">
+                            <a> <i class="delete icon"></i></a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
 
-        <div class="ui small modal" id="slotform">
-            <i class="close icon"></i>
-            <div class="header">
-                Modal Title
-            </div>
-            <div class="content">
-                <form class="ui form">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-
-                    <div class="required field">
-                        <label for="address">Address</label>
-                        <input type="text" placeholder="Address of the slot" name="address">
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div class="ui small modal" id="deleteModal" style="margin-top:-1px;">
-                <i class="close icon"></i>
-                <div class="header">
-                    Delete warehouse
-                </div>
-                <div class="content">
-                    Do you want to delete slot <div id="slot">?</div>
-                </div>
-                <div class="actions">
-                    <div class="ui negative button">No</div>
-                    <a id="href">
-                        <div class="ui positive right button">Yes</div></a>
-                </div>
-        </div>
     @else
-        <div class="ui inverted red segment" id="slotsmessage">
+        <div class="ui inverted red segment" id="slotsMessage">
             <p>No slots have been defined for this warehouse</p>
         </div>
     @endif
 @stop
 
+@section('modals')
+    @include('partials.Modals.slots.createslot')
+    @include('partials.Modals.slots.deleteslot')
+@stop
+
+
 @section('extrajs')
     <script>
-        function OpenModalDelete(slot, url){
-            document.getElementById("slot").innerHTML = slot;
-            document.getElementById("href").href = url;
-            $('#deleteModal')
-                    .modal('setting', {
-                        closable : false,
-                        onApprove : function () {
-                        }
-                    })
-                    .modal('show');
-        };
-    </script
+        @include('partials.Modals.slots.createslotjs')
+        @include('partials.Modals.slots.deleteslotjs')
+    </script>
 @stop

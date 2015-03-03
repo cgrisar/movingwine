@@ -5,6 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Slot extends Model {
 
 	//
+    protected $fillable = ['address', 'excise', 'capacity'];
 
     public function warehouse()
     {

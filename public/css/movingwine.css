@@ -3,6 +3,12 @@ thead
         background-color: lightgrey;
     }
 
+div.row
+    {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
 .floatrighticon
     {
         float:right;

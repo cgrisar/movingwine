@@ -13,12 +13,12 @@
                 <p>No relationship has been defined.</p>
             </div>
         @else
-            <table id="relationshipTable" class="ui table">
+            <table id="relationshipTable" class="ui sortable table">
                 <thead>
                     <tr>
-                        <td>Name</td>
-                        <td>VAT</td>
-                        <td colspan="2" class="center aligned">Actions</td>
+                        <th class="eight wide">Name</th>
+                        <th class="four wide">VAT</th>
+                        <td class="four wide" colspan="2" class="center aligned">Actions</th>
                     </tr>
                 </thead>
             </table>
@@ -37,13 +37,19 @@
 @section('dTScript')
     <script>
         $(document).ready(function(){
+
             $('#relationshipTable').dataTable({
+
                 "ajax": "admin/relationshipsajax",
+
                 "columns": [
                     {"data": "name"},
                     {"data": "vat"}
                 ]
             });
+
+            $('.ui.dropdown')
+                    .dropdown();
         });
     </script>
 @stop

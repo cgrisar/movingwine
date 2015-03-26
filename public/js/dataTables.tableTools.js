@@ -3150,7 +3150,7 @@ if ( typeof $.fn.dataTable == "function" &&
 			return new TableTools( oDTSettings.oInstance, opts ).dom.container;
 		},
 		"cFeature": "T",
-		"sFeature": "TableTools"
+		"sTag": "dt_tableTools"		// added sTag-option
 	} );
 }
 else
@@ -3180,7 +3180,7 @@ if ( typeof $.fn.dataTable == "function" &&
 			return oTT.dom.container;
 		},
 		"cFeature": "T",
-		"sFeature": "TableTools"
+		"sTag": "dt_tableTools"
 	} );
 }
 else

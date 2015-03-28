@@ -23,8 +23,8 @@
                 <thead>
                     <tr>
                         <th class="eight wide">Name</th>
-                        <th class="four wide">VAT</th>
-                        <th class="two wide center aligned" class="center aligned">Actions</th>
+                        <th class="six wide">VAT</th>
+                        <th class="center aligned">Actions</th>
                     </tr>
                 </thead>
             </table>

@@ -47,8 +47,8 @@ class WarehouseController extends Controller {
 	 */
 	public function store(Requests\WarehouseRequest $request)
 	{
-		//
-		$warehouse = Warehouse::create($request->all());
+
+		Warehouse::create($request->all());
 
 		return redirect('warehouses');
 	}

@@ -24,7 +24,7 @@ Route::get('warehouses/create', 'WarehouseController@create');
 Route::get('warehouses/edit/{id}', 'WarehouseController@edit');
 Route::get('warehouses/delete/{id}', 'WarehouseController@destroy');
 
-Route::post('warehouses', 'WarehouseController@store');
+Route::post('warehouses/create', 'WarehouseController@store');
 Route::post('warehouses/edit/{id}', 'WarehouseController@update');
 Route::delete('warehouses/delete/{id}', 'WarehouseController@destroy');
 
@@ -42,6 +42,7 @@ Route::get('warehouses/{id}/slots/{slot}/delete', 'SlotController@destroy');
  */
 Route::get('admin/relationshipsajax', 'RelationshipController@indexajax');
 Route::get('relationships', 'RelationshipController@index');
+Route::get('relationships/create', 'RelationshipController@create');
 
 
 /*

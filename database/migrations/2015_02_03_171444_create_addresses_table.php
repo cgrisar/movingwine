@@ -21,7 +21,6 @@ class CreateAddressesTable extends Migration {
 			$table->string('zip');
 			$table->string('county');
 			$table->string('country');
-			$table->string('VAT');
 			$table->string('phone');
 			$table->string('email');
 			$table->string('contact');

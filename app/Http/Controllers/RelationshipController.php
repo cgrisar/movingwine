@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Movingwine\Address;
 use App\Movingwine\Datatable;
 use App\Movingwine\Relationship;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -24,14 +25,20 @@ class RelationshipController extends Controller {
 	}
 
 	/**
-	 * @return \Illuminate\Database\Eloquent\Collection|static[]
+	 * Return a json array with the relationships
+	 * @return array
      */
 	public function indexajax()
 	{
 		//
-		$relationships = Datatable::output(Relationship::all(), ['key'=>'id','newkey' => 'Dt_Rowid', 'transform' => 'row_']);
-
+		$relationships = Datatable::output(Relationship::all(), ['key'=> 'id','newkey' => 'Dt_Rowid', 'transform' => 'row_']);
 		return ['draw' => '1', 'RecordCount' => $relationships->count(), 'data' => $relationships];
+	}
+
+	public function relationshipAddressesAjax()
+	{
+		$addresses = Datatable::output(Address::all(), ['key'=> 'id','newkey' => 'Dt_Rowid', 'transform' => 'row_']);
+		return ['draw' => '1', 'RecordCount' => $addresses->count(), 'data' => $addresses];
 
 	}
 
@@ -43,6 +50,7 @@ class RelationshipController extends Controller {
 	public function create()
 	{
 		//
+		return view('relationships.create', compact('warehouse'));
 	}
 
 	/**
@@ -50,9 +58,11 @@ class RelationshipController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Requests\RelationshipRequest $request)
 	{
 		//
+		Relationship::create($request->all());
+		return redirect('relationships');
 	}
 
 	/**

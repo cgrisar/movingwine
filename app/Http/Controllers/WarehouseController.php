@@ -49,7 +49,6 @@ class WarehouseController extends Controller {
 	{
 
 		Warehouse::create($request->all());
-
 		return redirect('warehouses');
 	}
 
